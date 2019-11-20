@@ -1,0 +1,46 @@
+.my-form{
+  min-width: 150px;
+  max-width: 450px;
+  height: auto;
+  width: 100%;
+}
+
+input[type="file"] {
+    align-items: baseline;
+    color: blue;
+    text-align: start !important;
+}
+ 
+.full-width {
+  width: 100%;
+}
+.mat-card-image{
+    width:52px !important;
+    height:52px !important;
+    margin-left: 3% !important; 
+}
+.header{
+    margin-left: 60px;
+}
+#create{
+    margin-left:35%;
+}
+
+.mat-card{
+    margin-top: 40px;
+    width: 500px;
+}
+.example-h2 {
+  margin: 10px;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.example-margin {
+  margin: 0 10px;
+}

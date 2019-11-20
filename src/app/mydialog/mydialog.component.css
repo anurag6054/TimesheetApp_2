@@ -1,0 +1,50 @@
+#psa{
+    cursor: pointer;
+}
+
+#search{
+    cursor: pointer;
+    margin-top: 3px !important;
+}
+#workSearch{
+    width: 60px !important;
+    height: 20px !important;
+}
+.mat-form-field{
+    height: 32px !important;
+    width: 140px !important;
+    margin-bottom: 0px !important;
+}
+
+#psa{
+   cursor: pointer; 
+}
+.wrapper {
+    border:0.2px solid white;
+    display:inline-block;
+    height: 22px !important;
+    background-color: white;
+}
+
+/* #field{
+    font-size: 17px !important;
+    background-color:white;
+    cursor: pointer;
+    border:0;
+} */
+#search {
+    font-size: 17px !important;
+    /* margin-top: 2px; */
+    background-color:white;
+    cursor: pointer;
+    border:0;
+}
+table tr{
+    cursor: pointer;
+}
+
+table tr.highlight {
+    background-color: rgb(179, 209, 240) !important;
+    color: black;
+    cursor: pointer;
+}

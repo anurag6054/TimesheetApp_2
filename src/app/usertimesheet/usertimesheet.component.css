@@ -1,0 +1,214 @@
+#example-card {
+  margin-top: 50px !important;
+  height:530px;
+}
+#example-card-name {
+  /* margin-top: 50px !important; */
+  height:130px;
+}
+/* .material-icons{
+    font-size: 17px !important;
+} */
+#newAttributePrice{
+    width: 45px !important;
+    margin-left: 45px !important;
+}
+#newAttributePSA{
+    width: 70px !important;
+}
+#field{
+     width: 40px !important;
+}
+#fieldWorkUnit{
+     width: 65px !important;
+}
+#fieldUnit{
+     width: 80px !important;
+}
+#fieldPsa{
+     width: 105px !important;
+}
+#fieldSystem{
+     width: 70px !important;
+}
+#fieldSubSystem{
+     width: 70px !important;
+}
+#fieldRecType{
+     width: 50px !important;
+}
+
+#example{
+    margin-top: 50px !important;
+    height:450px !important;
+}
+#exampleSelect1{
+        width: 60px !important;
+}
+#sunday{
+    width:130px !important;
+    height:310px !important; 
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+.mat-form-field{
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+hr { 
+  width:75% !important;  
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  border-style: inset;
+  border-width: 0.8px;
+}
+.time{
+    margin-left: 500px;
+}
+.summary{
+    margin-left: 525px;
+}
+
+table {
+  width: 1333px !important;
+}
+#categorypsa{
+    margin-left: -18px !important;
+        width: 70px !important;
+    margin-right: 5px !important;
+}
+#categoryefforttype{
+    margin-left: -18px !important;
+         width: 70px !important;
+    margin-right: 5px !important;
+}
+
+/* #categorysystem{
+
+} */
+/* .mat-card{
+    height:130px !important;
+} */
+#example-card-project{
+    margin-top: 30px;
+    height:480px !important;
+}
+#example-card-personal{
+    margin-top: 30px;
+    height:300px !important;
+}
+#example-card-declaration{
+    margin-top: 30px;
+    height:180px !important;
+}
+.mat-grid-tile {
+    height: 40px !important;
+}
+#table{
+    margin-top: 20px !important;
+    background-color: lightgrey;
+}
+#table2{
+    margin-top: 20px !important;
+    background-color: lightgrey;
+}
+#create{
+    margin-left: 40% !important;
+}
+/* #search{
+    font-size: 17px !important;
+    cursor: pointer;
+} */
+.wrapper {
+    border:0.2px solid white;
+    display:inline-block;
+    height: 22px !important;
+    background-color: white;
+}
+.mat-card-image{
+    width:45px !important;
+    height:45px !important;
+    margin-right: 0.5% !important; 
+}
+
+/* input{
+    font-size: 17px !important;
+    background-color:white;
+    cursor: pointer;
+    border:0;
+} */
+#search {
+    font-size: 17px !important;
+    /* margin-top: 2px; */
+    /* background-color:white; */
+    cursor: pointer;
+    border:0;
+}
+#add{
+  cursor: pointer;  
+}
+#remove{
+    cursor: pointer;  
+}
+
+#select {
+    /* margin-left: 26px; */
+    width: 85px;
+}
+
+
+.mat-form-field{
+    width: 110px !important;
+    height: 15px !important;
+    margin-bottom: 55px !important;
+}
+#cl{
+    margin-top: 7px;
+}
+#training{
+    margin-top: 7px;
+}
+#administration{
+    margin-top: 7px;
+}
+#hours{
+    width: 100px !important
+}
+#sourcetype{
+    width: 10% !important
+}
+#project{
+    width: 70px !important
+}
+#workcategory{
+    width: 70px !important;
+    margin-right: 5px !important;
+}
+#category{
+    width: 70px !important;
+    margin-right: 5px !important;
+}
+#subcategory{
+    width: 100px !important
+}
+
+#refresh{
+    margin-left: 450px;
+    margin-top: 30px;
+}
+
+#approval{
+    margin-top: 100px;
+    margin-left: 500px; 
+}

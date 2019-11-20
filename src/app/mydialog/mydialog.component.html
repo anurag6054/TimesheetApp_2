@@ -1,0 +1,44 @@
+<h2 mat-dialog-title>Search Work Unit Description</h2>
+<!-- 
+<mat-form-field class="example-full-width" appearance="outline">
+  <mat-label>Work Unit Description</mat-label>
+  <input matInput  name="workUnitDesc" autocomplete="off" [(ngModel)]='workUnit'>
+</mat-form-field> -->
+
+<input [(ngModel)]='workUnit' class="form-control" id="field" type="text" (keyup.enter)="keyUpFunction($event)" placeholder="WorkUnit Description" name="newAttributeWorkUnitDesc" />
+            <a class='btn' >
+              <i (click)="getPsa()" (keydown)="psaEvent($event)" id="search" class="material-icons"
+               matTooltip="Search data with Work Unit Description" 
+               aria-label="Button that displays a tooltip when focused or hovered over">
+                search
+              </i>
+            </a>
+<div mat-dialog-content>
+  <h3 *ngIf="this.psadata1.length!=0">Work Unit Details</h3>
+<table *ngIf="this.psadata1.length!=0" class="mat-elevation-z9">
+  <tr>
+    <th>Work Unit Desc.</th>
+    <th>Work Unit</th>
+    <th>Psa Code</th>
+    <th>System</th>
+    <th>Sub-System</th>
+    <th>Rec Type</th>
+  </tr>
+  <tr *ngFor="let application of psadata1; let i= index"
+   (click)="getPsaDetails(application)" [ngClass] = "{'highlight' :application.unitId.workUnit === unitWorkDesc}">
+    <td>{{application.workUnitDesc}}</td>
+    <td>{{application.unitId.workUnit}}</td>
+    <td>{{application.psaCode}}</td>
+    <td>{{application.unitId.systemType}}</td>
+    <td>{{application.unitId.subSystemType}}</td>
+    <td>{{application.unitId.recType}}</td>
+  </tr>
+</table>
+<div>
+  <button mat-button *ngFor="let application of psadata2" (click)="submit(application.unitId.workUnit)" [mat-dialog-close] cdkFocusInitial>OK</button>
+</div>
+</div>
+
+
+
+

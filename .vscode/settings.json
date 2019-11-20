@@ -1,0 +1,5 @@
+{
+    "tslint.enable": false,
+    "appService.defaultWebAppToDeploy": "/subscriptions/e0bead8c-e216-4071-b43c-1387fc6293d1/resourceGroups/timesheetMichelin/providers/Microsoft.Web/sites/timesheetMichelin",
+    "appService.deploySubpath": "dist"
+}

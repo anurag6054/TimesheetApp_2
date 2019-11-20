@@ -1,0 +1,10 @@
+.mat-toolbar{
+    /* position: absolute; */
+    width: 100% !important;
+}
+
+#home{
+    cursor: pointer;
+    color: white;
+
+}

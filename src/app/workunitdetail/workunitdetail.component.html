@@ -1,0 +1,62 @@
+<div fxLayout="row" fxFlexOffset=33 fxFlex=33>
+
+  <mat-card id="my-card" class="mat-elevation-z9">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image">
+        <img mat-card-image src="assets/img/workunit.jpg" alt="Psa Mapping">
+      </div>
+      <mat-card-title class="header">WORK UNIT DETAIL</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form #workForm="ngForm" class="my-form" (ngSubmit)="onSubmit()" novalidate>
+        <hr>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label> WORK UNIT</mat-label>
+          <input matInput placeholder=" WORK UNIT" name="workUnit" autocomplete="off" [(ngModel)]="unitModel.workUnit" #message required>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label> WORK UNIT DESCRIPTION</mat-label>
+          <input matInput placeholder=" WORK UNIT" name="workUnitDesc" autocomplete="off" [(ngModel)]="workModel.workUnitDesc" required>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-select placeholder="SYSTEM TYPE" [(ngModel)]="unitModel.systemType" (ngModelChange)="onModelChangeSys($event)" class="form-control" id="exampleSelect1"
+            name="systemType" aria-required="true">
+            <mat-option *ngFor="let option of foods" [value]="option.value">{{option.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-select placeholder="SUB SYSTEM TYPE" [(ngModel)]="unitModel.subSystemType" (ngModelChange)="onModelChangeSubSys($event)" class="form-control" id="exampleSelect1" name="subSystemType"
+           aria-required="true">
+            <mat-option *ngFor="let items of subSystem" [value]="items.value">{{items.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-select placeholder="REC TYPE" [(ngModel)]="unitModel.recType" (ngModelChange)="onModelChangeRec($event)" class="form-control" id="exampleSelect1"
+            name="recType" aria-required="true">
+            <mat-option *ngFor="let item of rec" [value]="item.value">{{item.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>PSA CODE</mat-label>
+          <input matInput placeholder="PSA CODE" class="form-control" name="psaCode" [ngModel]="psaName" autocomplete="off"   >
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>USER ID</mat-label>
+          <input  matInput placeholder="USER ID" name="userId" autocomplete="off" [(ngModel)]="userId">
+        </mat-form-field>
+        <section>
+          <button mat-raised-button color="primary" type="submit"  (click)="openSnackBar(message.value)" id="create">SUBMIT</button>
+        </section>
+      </form>
+        <hr>
+        <h2>Mass Upload</h2>
+        <section>
+          <input type="file" (change)="incomingfile($event)" placeholder="Upload file" accept=".xlsx" [disabled]="!psaName" >
+          <button mat-raised-button color="primary" (click)="Upload()" [disabled]="!psaName">Upload</button>
+        
+        </section>
+    </mat-card-content>
+
+  </mat-card>
+</div>

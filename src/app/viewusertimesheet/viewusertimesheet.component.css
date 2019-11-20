@@ -1,0 +1,249 @@
+#example-card {
+  margin-top: 50px !important;
+  height:530px;
+}
+#example-card-name {
+  /* margin-top: 50px !important; */
+  height:160px;
+}
+#projectCard{
+    margin-top: 20px !important;
+    background-color: lightgrey;
+}
+#export{
+    cursor: pointer;
+    float: right;
+}
+#chrome{
+    cursor: pointer;
+    float: right;
+    margin-top: -28px !important;
+}
+
+#table{
+    width:100%;
+    margin-left:-14px !important; 
+    margin-top: 20px !important;
+    background-color: lightgrey;
+}
+
+
+#table2{
+    margin-top: 20px !important;
+    background-color: lightgrey;
+}
+.mat-card-image{
+    width:45px !important;
+    height:45px !important;
+    margin-right: 0.5% !important; 
+}
+
+/* .material-icons{
+    font-size: 17px !important;
+} */
+#view{
+    width: 65px !important;
+    /* margin-left: 20px !important; */
+}
+#viewPsa{
+    width: 100px !important;
+    /* margin-left: 20px !important; */
+}
+
+#view1{
+    width: 45px !important;
+    margin-left: 45px !important; 
+}
+#view2{
+    width: 45px !important;
+    /* margin-left: 45px !important;  */
+}
+#example{
+    margin-top: 50px !important;
+    height:450px !important;
+}
+.mat-grid-tile .mat-figure{
+    height: 340px !important;
+}
+.project{
+    margin-left: 450px !important;
+}
+#input{
+    width: 60px !important;
+}
+#input1{
+    width: 100px !important;
+}
+#rec{
+    margin-left: 103px !important;
+}
+#effortType{
+    margin-left: 80px !important;
+}
+#sun{
+    margin-left: 82px !important;
+}
+#mon{
+    margin-left: 82px !important;
+}
+#tue{
+    margin-left: 76px !important;
+}
+#wed{
+    margin-left: 46px !important;
+}
+#thu{
+    margin-left: 75px !important;
+}
+#fri{
+    margin-left: 45px !important;
+}
+#sat{
+    margin-left: 70px !important;
+}
+#sunday{
+    width:130px !important;
+    /* margin-right: 30px !important; */
+    height:300px !important;
+    background-color: aliceblue; 
+    border-bottom: 2px solid blue;
+}
+#cardHeader{
+    color: white;
+    width: 100% !important;
+    background-color:rgb(103, 103, 238);
+    border-radius: 5% !important;
+}
+
+#newAttributePrice{
+    width: 45px !important;
+    margin-left: 45px !important;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+.mat-form-field{
+    margin-bottom: 30px;
+    width: 100%;
+    position: relative;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+hr { 
+  width:75% !important;  
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  border-style: inset;
+  border-width: 0.8px;
+}
+.time{
+    margin-left: 500px;
+}
+.summary{
+    margin-left: 525px;
+}
+
+table {
+  width: 1333px !important;
+}
+/* .mat-card{
+    height:130px !important;
+} */
+#example-card-project{
+    margin-top: 30px;
+    height:480px !important;
+}
+#example-card-personal{
+    margin-top: 30px;
+    height:300px !important;
+}
+/* .mat-form-wrapper{
+    width: 134px !important;
+} */
+#example-card-declaration{
+    margin-top: 30px;
+    height:180px !important;
+}
+.mat-grid-tile {
+    height: 40px !important;
+}
+#create{
+    margin-left: 40% !important;
+}
+#search{
+    font-size: 17px !important;
+    margin-top: 20px !important;
+
+}
+
+#select {
+    /* margin-left: 26px; */
+    width: 85px;
+}
+.mat-form-field{
+    width: 110px !important;
+    height: 15px !important;
+    margin-bottom: 55px !important;
+}
+#cl{
+    margin-top: 7px;
+}
+#training{
+    margin-top: 7px;
+}
+#administration{
+    margin-top: 7px;
+}
+#hours{
+    width: 100px !important
+}
+#sourcetype{
+    width: 10% !important
+}
+#project{
+    width: 70px !important
+}
+.workcategory{
+    width: 85px !important;
+    margin-right: 5px !important;
+}
+#workcategory1{
+    width: 85px !important;
+    margin-right: 5px !important;
+    margin-left:-59px !important;
+}
+/* .example-full-width{
+
+} */
+#category{
+    width: 70px !important;
+    margin-right: 5px !important;
+}
+#category1{
+    width: 70px !important;
+    margin-right: 5px !important;
+    margin-left:-50px !important;
+}
+#subcategory{
+    width: 100px !important
+}
+
+#refresh{
+    margin-left: 450px;
+
+    margin-top: 30px;
+}
+
+#approval{
+    /* position: fixed; */
+        margin-top: 100px;
+     margin-left: 500px; 
+}

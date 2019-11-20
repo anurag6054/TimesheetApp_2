@@ -1,0 +1,34 @@
+<div fxLayout="row" fxFlexOffset="37" fxFlex="33">
+  <mat-card id="example-card" class="mat-elevation-z9">
+    <mat-card-header>
+      <h3>Login As Admin</h3>
+    </mat-card-header>
+        <mat-card-content>
+          <form class="example-form">
+            <table class="example-full-width" cellspacing="0">
+              <tr>
+                <td>
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Username" autocomplete="off" [(ngModel)]="username" (keyup.enter)="keyUpFunction($event)" name="username" required>
+
+                  </mat-form-field>
+                  <i class="material-icons">supervised_user_circle</i>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Password" autocomplete="off" [(ngModel)]="password" [type]="hide ? 'text' : 'password'" (keyup.enter)="keyUpFunction($event)" name="password" required>
+                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                  </mat-form-field>
+                </td>
+              </tr>
+            </table>
+          </form>
+          <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button (click)="login()" id="user" color="primary">Login</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

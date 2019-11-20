@@ -1,0 +1,433 @@
+<h3 class="time">MODIFY TIME REPORT</h3>
+<hr>
+<h4 class="summary">Time Report Summary</h4>
+<mat-card id="example-card-name" class="mat-elevation-z9">
+  <mat-card-header>
+    <img mat-card-image src="assets/img/userprofile.jpg" alt="User Profile">
+    <h3 *ngFor="let user of userdata2">{{user.firstName}} {{user.lastName}}</h3>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="example-form">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <p *ngFor="let data of resultdata1">
+              <b>Employee Id:</b> {{data.employee}}</p>
+          </td>
+          <td>
+            <p *ngFor="let data of resultdata1">
+              <b>Period End Date:</b>{{data.periodDate}} </p>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<mat-card  id='projectcard'>
+        <h3>Project Details:</h3>
+        <table class="mat-elevation-z9" id="table">
+          <thead>
+            <tr>
+              <th>W.U. Desc.</th>
+              <th>Work Unit</th>
+              <th>PSA</th>
+              <th>Category</th>
+              <th>System</th>
+              <th>Sub-System</th>
+              <th>Work Type</th>
+              <th>Work Category</th>
+              <th>Su {{this.dateSun}}</th>
+              <th>Mo {{this.dateMon}}</th>
+              <th>Tue {{this.dateTue}}</th>
+              <th>Wed {{this.dateWed}}</th>
+              <th>Thu {{this.dateThu}}</th>
+              <th>Fri {{this.dateFri}}</th>
+              <th>Sat {{this.dateSat}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr *ngFor='let item of userdata; let i=index'>
+              <!-- {{i}} -->
+              <td *ngIf="item.psaCode!= ' '">
+                <input class="form-control" id="viewWork" type="text" [ngModel]="item.workUnitDesc" />
+              </td>
+              <td *ngIf="item.psaCode!= ' '">
+                <input class="form-control" id="viewUnit" type="text" [ngModel]="item.workUnit"  />
+              </td>
+              <td *ngIf="item.psaCode!= ' '">
+                <input class="form-control" id="viewPsa" type="text" [ngModel]="item.psaCode" />
+              </td>
+              <td *ngIf="item.psaCode!= ' '">
+                <!-- <input class="form-control" id="view" type="text" [ngModel]="item.effortType"  /> -->
+                <select  [ngModel]="item.effortType" (ngModelChange)="onModelChangeEffort($event,i)" class="form-control" id="exampleSelect1"
+                  name="newAttributeEffortType-{{i}}">
+                  <option *ngFor="let items of foods" [ngValue]="items.value">{{items.viewValue}}</option>
+                </select>
+              </td>
+              <td *ngIf="item.psaCode!= ' '">
+                <input class="form-control" id="view" type="text" [ngModel]="item.systemType"  />
+              </td>
+              <td *ngIf="item.psaCode!= ' ' ">
+                <input class="form-control" id="view" type="text" [ngModel]="item.subSystemType"  />
+              </td>
+              <td *ngIf="item.psaCode!= ' ' ">
+                <input class="form-control" id="view" type="text" [ngModel]="item.recType" />
+              </td>
+              <td *ngIf="item.psaCode!= ' ' ">
+                <!-- <input class="form-control" id="view" type="text" [ngModel]="item.recCategory"  /> -->
+                <select [ngModel]='item.recCategory' (ngModelChange)="onModelChangeRec($event,i)" class="form-control" id="exampleSelect1"
+                  name="newAttributeRecCat-{{i}}">
+                  <option *ngFor="let option of recAttribute1[i]" [ngValue]="option.recId['recordCategory']">{{option.recId['recordCategory']}}</option>
+                </select>
+              </td>
+              <td *ngIf="item.psaCode!= ' ' && item.sunday['effort']==0">
+                <input class="form-control" id="view2" type="number" (ngModelChange)="onModelChangeSun($event,i)" [ngModel]=null />
+              </td>
+              <td *ngIf="item.psaCode!= ' ' && item.sunday['effort']!==0">
+                <input class="form-control" id="view2" type="number"(ngModelChange)="onModelChangeSun($event,i)" [ngModel]="item.sunday['effort']" />
+              </td>
+              <td *ngIf="item.psaCode!= ' ' && item.monday['effort']==0">
+                <input class="form-control" id="view2" type="number" (ngModelChange)="onModelChangeMon($event,i)" [ngModel]=null />
+              </td>
+              <td *ngIf="item.psaCode!= ' ' && item.monday['effort']!==0">
+                <input class="form-control" id="view2" type="number"(ngModelChange)="onModelChangeMon($event,i)" [ngModel]="item.monday['effort']" />
+              </td>
+              <td *ngIf="item.psaCode!= ' ' && item.tuesday['effort']==0">
+                <input class="form-control" id="view2" type="number" (ngModelChange)="onModelChangeTue($event,i)" [ngModel]=null />
+              </td>
+              <td *ngIf="item.psaCode!= ' ' && item.tuesday['effort']!==0">
+                <input class="form-control" id="view2" type="number" (ngModelChange)="onModelChangeTue($event,i)" [ngModel]="item.tuesday['effort']" />
+              </td>
+              <td *ngIf="item.psaCode!= ' ' &&  item.wednesday['effort']==0">
+                <input class="form-control" id="view2" type="number" (ngModelChange)="onModelChangeWed($event,i)" [ngModel]=null />
+              </td>
+              <td *ngIf="item.psaCode!= ' ' && item.wednesday['effort']!==0">
+                <input class="form-control" id="view2" type="number" (ngModelChange)="onModelChangeWed($event,i)" [ngModel]="item.wednesday['effort']" />
+              </td>
+              <td *ngIf="item.psaCode!= ' ' && item.thursday['effort']==0">
+                <input class="form-control" id="view2" type="number" (ngModelChange)="onModelChangeThu($event,i)" [ngModel]=null />
+              </td>
+              <td *ngIf="item.psaCode!= ' ' && item.thursday['effort']!==0">
+                <input class="form-control" id="view2" type="number" (ngModelChange)="onModelChangeThu($event,i)" [ngModel]="item.thursday['effort']" />
+              </td>
+              <td *ngIf="item.psaCode!= ' ' && item.friday['effort']==0">
+                <input class="form-control" id="view2" type="number" (ngModelChange)="onModelChangeFri($event,i)" [ngModel]=null />
+              </td>
+              <td *ngIf="item.psaCode!= ' ' && item.friday['effort']!==0">
+                <input class="form-control" id="view2" type="number" (ngModelChange)="onModelChangeFri($event,i)" [ngModel]="item.friday['effort']" />
+              </td>
+              <td *ngIf="item.psaCode!= ' ' && item.saturday['effort']==0">
+                <input class="form-control" id="view2" type="number" (ngModelChange)="onModelChangeSat($event,i)" [ngModel]=null />
+              </td>
+              <td *ngIf="item.psaCode!= ' ' && item.saturday['effort']!==0">
+                <input class="form-control" id="view2" type="number" (ngModelChange)="onModelChangeSat($event,i)" [ngModel]="item.saturday['effort']" />
+              </td>
+              <td>
+                        <i *ngIf="item.psaCode!= ' '" class="material-icons" (click)="addField()" id='add' matTooltip="Add a new Timesheet row into existing Data" aria-label="Button that displays a tooltip when focused or hovered over">
+                          add_box
+                        </i>
+                            <i *ngIf="item.psaCode!= ' '" class="material-icons" (click)="deleteValue(i)" id='remove'>
+                              delete
+                            </i>
+              </td>
+        </tr>
+        <!-- <hr> -->
+        <tr *ngFor="let field of fieldArray; let k = index">
+
+          <td *ngIf="(this.JsonPsaRaw.length == k)">
+            <input class="form-control" id="fieldWorkUnit" type="text" readonly/>
+            <a class='btn'>
+              <i (click)="openDialog(k)" id="search" class="material-icons">
+                search
+              </i>
+            </a>
+            
+          </td>
+
+          <td *ngIf="this.JsonPsaRaw.length >= (k+1)">
+            <input class="form-control" id="fieldWorkUnit" type="text" [value]='newAttribute3[k].workUnitDesc' name="newAttributeWorkUnitDesc-{{i}}"
+              readonly />
+              <a class='btn'>
+                <i (click)="openDialog(k)" id="search" class="material-icons">
+                  search
+                </i>
+              </a>
+          </td>
+          
+          <td *ngIf="(this.JsonPsaRaw.length == k) ">
+            <input class="form-control" id="fieldUnit" type="text" name="newAttributeWorkUnit-{{k}}" readonly/>
+          </td>
+          <td *ngIf="this.JsonPsaRaw.length >= (k+1)">
+            <input class="form-control" id="fieldUnit" type="text" [value]='newAttribute3[k].workUnit' name="newAttributeWorkUnit-{{k}}"
+              readonly/>
+          </td>
+          <td>
+            <input *ngIf="(this.JsonPsaRaw.length == k) " class="form-control" id="fieldPsa" type="text" name="newAttributePsa-{{k}}"
+              readonly />
+            <input *ngIf="this.JsonPsaRaw.length >= (k+1)" class="form-control" id="fieldPsa" type="text" [value]='newAttribute3[k].psaCode'
+              name="newAttributePsa-{{i}}" readonly />
+          </td>
+          <td>
+            <select *ngIf="(this.JsonPsaRaw.length == k) " class="form-control" id="exampleSelect1" name="newAttributeEffortType-{{k}}">
+              <option *ngFor="let item of foods" [ngValue]="item.value">{{item.viewValue}}</option>
+            </select>
+            <select *ngIf="this.JsonPsaRaw.length >= (k+1)" [(ngModel)]="newAttribute3[k].effortType" class="form-control" id="exampleSelect1"
+              name="newAttributeEffortType-{{k}}">
+              <option *ngFor="let item of foods" [ngValue]="item.value">{{item.viewValue}}</option>
+            </select>
+          </td>
+          <td>
+            <input *ngIf="(this.JsonPsaRaw.length == k)" class="form-control" id="fieldSystem" type="text" name="newAttributeSystemType-{{k}}"
+              readonly/>
+            <input *ngIf="this.JsonPsaRaw.length >= (k+1)" class="form-control" id="fieldSystem" type="text" [value]='newAttribute3[k].systemType'
+              name="newAttributeSystemType-{{i}}" readonly/>
+          </td>
+          <td>
+            <input *ngIf="(this.JsonPsaRaw.length == k)" class="form-control" id="fieldSubSystem" type="text" name="newAttributeSubSystemType-{{k}}"
+              readonly/>
+            <input *ngIf="this.JsonPsaRaw.length >= (k+1)" class="form-control" id="fieldSubSystem" type="text" [value]='newAttribute3[k].subSystemType'
+              name="newAttributeSubSystemType-{{i}}" readonly/>
+          </td>
+          <td>
+            <input *ngIf="(this.JsonPsaRaw.length == k)" class="form-control" id="fieldRecType" type="text" name="newAttributeRecType-{{k}}"
+              readonly/>
+            <input *ngIf="this.JsonPsaRaw.length >= (k+1)" class="form-control" id="fieldRecType" type="text" [value]='newAttribute3[k].recType'
+              name="newAttributeRecType-{{k}}" readonly/>
+          </td>
+          <td>
+            <select *ngIf="(this.JsonPsaRaw.length == k)" class="form-control" id="exampleSelect1" name="newAttributeRecCat-{{k}}">
+              <option>Wrk Ca.</option>
+            </select>
+            <select *ngIf="this.JsonPsaRaw.length >= (k+1)" [(ngModel)]='newAttribute3[k].recCategory' class="form-control" id="exampleSelect1"
+              name="newAttributeRecCat-{{k}}">
+              <option *ngFor="let option of recAttribute[k]" [ngValue]="option.recId['recordCategory']">{{option.recId['recordCategory']}}</option>
+            </select>
+          </td>
+          <td>
+            <input *ngIf="(this.JsonPsaRaw.length == k)" class="form-control" id="field" type="number" min=0 max=9 value=0 name="effortSunday-{{k}}"
+            />
+            <input *ngIf="this.JsonPsaRaw.length >= (k+1)" [(ngModel)]="newAttribute3[k].sunday['effort']" class="form-control" id="field"
+              type="number" min=0 max=9 name="effortSunday-{{k}}" />
+          </td>
+          <td>
+            <input *ngIf="(this.JsonPsaRaw.length == k)" class="form-control" id="field" type="number" min=0 max=9 value=0 name="effortMonday-{{k}}"
+            />
+            <input *ngIf="this.JsonPsaRaw.length >= (k+1)" [(ngModel)]="newAttribute3[k].monday['effort']" class="form-control" id="field"
+              type="number" min=0 max=9 name="effortMonday-{{k}}" />
+          </td>
+          <td>
+            <input *ngIf="(this.JsonPsaRaw.length == k)" class="form-control" id="field" type="number" min=0 max=9 value=0 name="effortTuesday-{{k}}"
+            />
+            <input *ngIf="this.JsonPsaRaw.length >= (k+1)" [(ngModel)]="newAttribute3[k].tuesday['effort']" class="form-control" id="field"
+              type="number" min=0 max=9 name="effortTuesday{{k}}" />
+          </td>
+          <td>
+            <input *ngIf="(this.JsonPsaRaw.length == k)" class="form-control" id="field" type="number" min=0 max=9 value=0 name="effortWednesday-{{k}}"
+            />
+            <input *ngIf="this.JsonPsaRaw.length >= (k+1)" [(ngModel)]="newAttribute3[k].wednesday['effort']" class="form-control" id="field"
+              type="number" min=0 max=9 name="effortWednesday-{{k}}" />
+          </td>
+          <td>
+            <input *ngIf="(this.JsonPsaRaw.length == k)" class="form-control" id="field" type="number" min=0 max=9 value=0 name="effortThursday-{{k}}"
+            />
+            <input *ngIf="this.JsonPsaRaw.length >= (k+1)" [(ngModel)]="newAttribute3[k].thursday['effort']" class="form-control" id="field"
+              type="number" min=0 max=9 name="effortThursday-{{k}}" />
+          </td>
+          <td>
+            <input *ngIf="(this.JsonPsaRaw.length == k)" class="form-control" id="field" type="number" min=0 max=9 value=0 name="effortFriday-{{k}}"
+            />
+            <input *ngIf="this.JsonPsaRaw.length >= (k+1)" [(ngModel)]="newAttribute3[k].friday['effort']" class="form-control" id="field"
+              type="number" min=0 max=9 name="effortFriday-{{k}}" />
+          </td>
+          <td>
+            <input *ngIf="(this.JsonPsaRaw.length == k)" class="form-control" id="field" type="number" min=0 max=9 value=0 name="effortSaturday-{{k}}"
+            />
+            <input *ngIf="this.JsonPsaRaw.length >= (k+1)" [(ngModel)]="newAttribute3[k].saturday['effort']" class="form-control" id="field"
+              type="number" min=0 max=9 name="effortSaturday-{{k}}" />
+          </td>
+          <td>
+          <i class="material-icons" (click)="addFieldValue(k)" id="add"
+           matTooltip="Add a new Timesheet row" 
+           aria-label="Button that displays a tooltip when focused or hovered
+          over">
+            add_box
+          </i>
+          <i class="material-icons" (click)="deleteFieldValue(k)" id='remove'
+           matTooltip="Delete the Timesheet data row" 
+           aria-label="Button that displays a tooltip when focused or hovered
+          over">
+            delete
+          </i>
+          </td>
+        </tr>
+          </tbody>
+        </table>
+        </mat-card>
+        
+
+        <h3>Personal Details:</h3>
+        <!-- <i class="material-icons" (click)="addPersonal()" id='add'>
+          add_box
+        </i> -->
+        <table class="mat-elevation-z9" id="table2">
+          <thead>
+          <tr>
+            <th ></th>
+            <th >Su {{this.dateSun}}</th>
+            <th >Mo {{this.dateMon}}</th>
+            <th >Tue {{this.dateTue}}</th>
+            <th >Wed {{this.dateWed}}</th>
+            <th >Thu {{this.dateThu}}</th>
+            <th >Fri {{this.dateFri}}</th>
+            <th >Sat {{this.dateSat}}</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let item of userdata;let i=index'>
+              <!-- {{i}} -->
+              <td *ngIf="item.workUnit=='CL'">
+                Contingency Leave
+              </td>
+<td>
+  <input *ngIf=" item.workUnit=='CL' && item.sunday['effort']==0" class="form-control" id="view1" type="number" (ngModelChange)="onModelChangeSun($event,i)"
+    [ngModel]=null/>
+  <input *ngIf=" item.workUnit=='CL' && item.sunday['effort']!==0" class="form-control" type="number" id="view1" (ngModelChange)="onModelChangeSun($event,i)"
+    [value]="item.sunday['effort']" />
+</td>
+<td>
+  <input *ngIf=" item.workUnit=='CL' && item.monday['effort']==0" class="form-control" id="view1" type="number" (ngModelChange)="onModelChangeMon($event,i)"
+    [ngModel]=null/>
+  <input *ngIf=" item.workUnit=='CL' && item.monday['effort']!==0" class="form-control" type="number" id="view1" (ngModelChange)="onModelChangeMon($event,i)"
+    [value]="item.monday['effort']" />
+</td>
+<td>
+  <input *ngIf="item.workUnit=='CL' && item.tuesday['effort']==0" class="form-control" id="view1" type="number" (ngModelChange)="onModelChangeTue($event,i)"
+    [ngModel]=null/>
+  <input *ngIf="item.workUnit=='CL' && item.tuesday['effort']!==0" class="form-control" type="number" id="view1" (ngModelChange)="onModelChangeTue($event,i)"
+    [value]="item.tuesday['effort']" />
+</td>
+<td>
+  <input *ngIf=" item.workUnit=='CL' && item.wednesday['effort']==0" class="form-control" id="view1" type="number" (ngModelChange)="onModelChangeWed($event,i)"
+    [ngModel]=null />
+  <input *ngIf=" item.workUnit=='CL' && item.wednesday['effort']!==0" class="form-control" type="number" id="view1" (ngModelChange)="onModelChangeWed($event,i)"
+    [ngModel]="item.wednesday['effort']" />
+</td>
+<td>
+  <input *ngIf="item.workUnit=='CL' && item.thursday['effort']==0" class="form-control" id="view1" type="number" (ngModelChange)="onModelChangeThu($event,i)"
+    [ngModel]=null/>
+  <input *ngIf="item.workUnit=='CL' && item.thursday['effort']!==0" class="form-control" type="number" id="view1" (ngModelChange)="onModelChangeThu($event,i)"
+    [ngModel]="item.thursday['effort']" />
+</td>
+<td>
+  <input *ngIf="item.workUnit=='CL' && item.friday['effort']==0" class="form-control" id="view1" type="number" (ngModelChange)="onModelChangeFri($event,i)"
+    [ngModel]=null/>
+
+  <input *ngIf="item.workUnit=='CL' && item.friday['effort']!==0" class="form-control" type="number" id="view1" (ngModelChange)="onModelChangeFri($event,i)"
+    [ngModel]="item.friday['effort']" />
+</td>
+<td>
+  <input *ngIf="item.workUnit=='CL' && item.saturday['effort']==0" class="form-control" id="view1" type="number" (ngModelChange)="onModelChangeSat($event,i)"
+    [ngModel]=null/>
+  <input *ngIf="item.workUnit=='CL' && item.saturday['effort']!==0" class="form-control" type="number" id="view1" (ngModelChange)="onModelChangeSat($event,i)"
+    [value]="item.saturday['effort']" />
+</td>
+            </tr>
+        
+        
+            <tr *ngFor='let item of userdata;let i=index'>
+              <!-- {{i}} -->
+              <td *ngIf="item.workUnit=='SH'">
+                Statuatory Holiday
+              </td>
+<td>
+  <input *ngIf=" item.workUnit=='SH' && item.sunday['effort']==0" class="form-control" id="view1" type="number" (ngModelChange)="onModelChangeSun($event,i)"
+    [ngModel]=null/>
+  <input *ngIf=" item.workUnit=='SH' && item.sunday['effort']!==0" class="form-control" type="number" id="view1" (ngModelChange)="onModelChangeSun($event,i)"
+    [value]="item.sunday['effort']" />
+</td>
+<td>
+  <input *ngIf=" item.workUnit=='SH' && item.monday['effort']==0" class="form-control" id="view1" type="number" (ngModelChange)="onModelChangeMon($event,i)"
+    [ngModel]=null/>
+  <input *ngIf=" item.workUnit=='SH' && item.monday['effort']!==0" class="form-control" type="number" id="view1" (ngModelChange)="onModelChangeMon($event,i)"
+    [value]="item.monday['effort']" />
+</td>
+<td>
+  <input *ngIf="item.workUnit=='SH' && item.tuesday['effort']==0" class="form-control" id="view1" type="number" (ngModelChange)="onModelChangeTue($event,i)"
+    [ngModel]=null/>
+  <input *ngIf="item.workUnit=='SH' && item.tuesday['effort']!==0" class="form-control" type="number" id="view1" (ngModelChange)="onModelChangeTue($event,i)"
+    [value]="item.tuesday['effort']" />
+</td>
+<td>
+  <input *ngIf=" item.workUnit=='SH' && item.wednesday['effort']==0" class="form-control" id="view1" type="number" (ngModelChange)="onModelChangeWed($event,i)"
+    [ngModel]=null />
+  <input *ngIf=" item.workUnit=='SH' && item.wednesday['effort']!==0" class="form-control" type="number" id="view1" (ngModelChange)="onModelChangeWed($event,i)"
+    [ngModel]="item.wednesday['effort']" />
+</td>
+<td>
+  <input *ngIf="item.workUnit=='SH' && item.thursday['effort']==0" class="form-control" id="view1" type="number" (ngModelChange)="onModelChangeThu($event,i)"
+    [ngModel]=null/>
+  <input *ngIf="item.workUnit=='SH' && item.thursday['effort']!==0" class="form-control" type="number" id="view1" (ngModelChange)="onModelChangeThu($event,i)"
+    [ngModel]="item.thursday['effort']" />
+</td>
+<td>
+  <input *ngIf="item.workUnit=='SH' && item.friday['effort']==0" class="form-control" id="view1" type="number" (ngModelChange)="onModelChangeFri($event,i)"
+    [ngModel]=null/>
+
+  <input *ngIf="item.workUnit=='SH' && item.friday['effort']!==0" class="form-control" type="number" id="view1" (ngModelChange)="onModelChangeFri($event,i)"
+    [ngModel]="item.friday['effort']" />
+</td>
+<td>
+  <input *ngIf="item.workUnit=='SH' && item.saturday['effort']==0" class="form-control" id="view1" type="number" (ngModelChange)="onModelChangeSat($event,i)"
+    [ngModel]=null/>
+  <input *ngIf="item.workUnit=='SH' && item.saturday['effort']!==0" class="form-control" type="number" id="view1" (ngModelChange)="onModelChangeSat($event,i)"
+    [value]="item.saturday['effort']" />
+</td>
+            </tr>
+          
+            <tr *ngFor='let item of userdata;let i=index'>
+              <!-- {{i}} -->
+              <td *ngIf="item.workUnit=='TRA'">
+                Training
+              </td>
+              <td>
+                <input *ngIf=" item.workUnit=='TRA' && item.sunday['effort']==0" class="form-control" id="view1" type="number" (ngModelChange)="onModelChangeSun($event,i)" [ngModel]=null/>
+                <input *ngIf=" item.workUnit=='TRA' && item.sunday['effort']!==0" class="form-control"  type="number" id="view1" (ngModelChange)="onModelChangeSun($event,i)" [value]="item.sunday['effort']"
+                />
+              </td>
+              <td>
+                <input *ngIf=" item.workUnit=='TRA' && item.monday['effort']==0" class="form-control" id="view1" type="number" (ngModelChange)="onModelChangeMon($event,i)" [ngModel]=null/>
+                <input *ngIf=" item.workUnit=='TRA' && item.monday['effort']!==0" class="form-control" type="number" id="view1" (ngModelChange)="onModelChangeMon($event,i)" [value]="item.monday['effort']"
+                />
+              </td>
+              <td>
+                <input *ngIf="item.workUnit=='TRA' && item.tuesday['effort']==0" class="form-control" id="view1" type="number" (ngModelChange)="onModelChangeTue($event,i)" [ngModel]=null/>
+                <input *ngIf="item.workUnit=='TRA' && item.tuesday['effort']!==0" class="form-control" type="number" id="view1" (ngModelChange)="onModelChangeTue($event,i)" [value]="item.tuesday['effort']"/>
+              </td>
+              <td>
+                <input *ngIf=" item.workUnit=='TRA' && item.wednesday['effort']==0" class="form-control"  id="view1" type="number"  (ngModelChange)="onModelChangeWed($event,i)" [ngModel]=null />
+                <input *ngIf=" item.workUnit=='TRA' && item.wednesday['effort']!==0" class="form-control"  type="number" id="view1" (ngModelChange)="onModelChangeWed($event,i)" [ngModel]="item.wednesday['effort']"/>
+              </td>
+              <td>
+                <input *ngIf="item.workUnit=='TRA' && item.thursday['effort']==0"  class="form-control" id="view1" type="number" (ngModelChange)="onModelChangeThu($event,i)" [ngModel]=null/>
+                <input *ngIf="item.workUnit=='TRA' && item.thursday['effort']!==0" class="form-control" type="number"id="view1"  (ngModelChange)="onModelChangeThu($event,i)" [ngModel]="item.thursday['effort']"/>
+              </td>
+              <td>
+                <input *ngIf="item.workUnit=='TRA' && item.friday['effort']==0" class="form-control" id="view1" type="number" (ngModelChange)="onModelChangeFri($event,i)" [ngModel]=null/>
+        
+                <input *ngIf="item.workUnit=='TRA' && item.friday['effort']!==0" class="form-control" type="number" id="view1" (ngModelChange)="onModelChangeFri($event,i)" [ngModel]="item.friday['effort']"/>
+              </td>
+              <td>
+                <input *ngIf="item.workUnit=='TRA' && item.saturday['effort']==0" class="form-control" id="view1" type="number"  (ngModelChange)="onModelChangeSat($event,i)" [ngModel]=null/>
+                <input *ngIf="item.workUnit=='TRA' && item.saturday['effort']!==0" class="form-control" type="number" id="view1"  (ngModelChange)="onModelChangeSat($event,i)" [value]="item.saturday['effort']"
+                />
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+
+<button mat-raised-button color="primary" (click)="onSubmit()" (click)="openSnackBar()" id="approval"
+ matTooltip="Submit Modified Timesheet Data" 
+ aria-label="Button that displays a tooltip when focused or hovered over">SUBMIT REVISION</button>

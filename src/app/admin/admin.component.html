@@ -1,0 +1,28 @@
+<!-- <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="side" opened="true" class="sidenav" [fixedInViewport]="true"> 
+        <ul>
+            <li>Hi</li>
+            <li>Hello</li>
+        </ul> </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+        <app-sidenav ></app-sidenav>
+    </mat-sidenav-content>
+</mat-sidenav-container> -->
+
+<!-- <div fxLayout="row" fxFlex=10>
+    <button mat-raised-button color="warn"  id="userProfile">USER PROFILE CREATION</button>
+    <button mat-raised-button color="primary"  id="psaMapping">PSA MAPPING</button>
+    <button mat-raised-button color="accent"  id="workUnit">WORK UNIT DETAILS</button>
+</div> -->
+<h3 class="header">Please Select among the following Tasks:</h3>
+<div class="example-button-row">
+
+    <button mat-raised-button color="primary" id="user" (click)="User()">USER PROFILE CREATION</button>
+
+    <button mat-raised-button color="primary" id="psa" (click)="psaMap()">PSA MAPPING</button>
+
+    <button mat-raised-button color="primary" id="work" (click)="Work()">WORK UNIT DETAILS</button>
+
+   
+</div>

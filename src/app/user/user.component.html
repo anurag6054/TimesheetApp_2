@@ -1,0 +1,45 @@
+ <div fxLayout="row" fxFlexOffset="37" fxFlex="33">
+    <mat-card id="example-card" class="mat-elevation-z9">
+        <mat-card-header>
+            <h3 class="heading">Timesheet
+                <i class="material-icons">
+                calendar_today
+                </i>
+            </h3>
+        </mat-card-header>
+        <mat-card-content>
+            <form #userForm="ngForm" class="example-form"  novalidate>
+
+                                    <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>EMPLOYEE ID</mat-label>
+                                        <!-- <input matInput placeholder="EMPLOYEE ID" name="employeeId" [(ngModel)]="usercredentialModel.EMPLOYEE_ID"> -->
+                                        <input matInput placeholder="EMPLOYEE ID" name="employee" required [(ngModel)]="employeeId" #employee readonly>
+                                    </mat-form-field>
+                
+  
+                            <mat-form-field class="example-full-width">
+                    
+                            <input matInput [matDatepicker]="picker" placeholder="Choose a date"  name="periodDate" [(ngModel)]="periodEndDate" #periodDate>
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                     
+                            </mat-form-field>
+             </form>
+                <section>
+                    <button mat-raised-button color="primary" id="create" (click)=addTimesheet(employee.value,periodDate.value)
+                     matTooltip="Create Timesheet" aria-label="Button that displays a tooltip when focused or hovered over">{{this.button}}</button>
+                    
+
+                    <!-- <a [routerLink]="['/viewusertimesheet', employee.value,periodDate.value ]" routerLinkActive="active">
+                        <button mat-raised-button color="primary" id="create">VIEW</button>
+                    </a> -->
+                    <!-- </div>    -->
+                    <!-- <a [routerLink]="['/viewusertimesheet', employee.value, periodDate.value]" routerLinkActive="active">
+                    <button mat-raised-button color="danger" id="view">VIEW</button>
+                    </a> -->
+                </section>
+            </mat-card-content>
+    </mat-card>
+</div>
+
+

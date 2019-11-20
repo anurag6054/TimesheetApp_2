@@ -1,0 +1,279 @@
+<!-- <img mat-card-image src="assets/img/workunit.jpg" alt="Psa Mapping"> -->
+<h3 class="time">CREATE TIME REPORT</h3>
+<hr>
+<h4 class="summary">Time Report Summary</h4>
+  <mat-card id="example-card-name" class="mat-elevation-z9">
+  <mat-card-header>
+  <img mat-card-image src="assets/img/userprofile.jpg" alt="User Profile">
+       <h3 *ngFor="let user of userdata2">{{user.firstName}} {{user.lastName}}</h3>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="example-form">
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+                <p *ngFor="let data of resultdata1"><b>Employee Id:</b>{{data.employee}}</p>
+            </td>
+            <td>
+              <p *ngFor="let data of resultdata1">
+                <b>Period End Date:</b> {{data.periodDate}}</p>
+            </td>
+            <td>
+              <p>
+                <b>Time:</b>{{this.latestTime}}</p>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </mat-card-content>
+  </mat-card>
+    <h3>Project Details:</h3>
+   <table class="mat-elevation-z9" id="table">
+      <thead>
+        <tr>
+          <th>W.U. Desc.</th>
+          <th></th>
+          <th>Work Unit</th>
+          <th>PSA</th>
+          <th>Category</th>
+          <th>System</th>
+          <th>Sub System</th>
+          <th>Work Type</th>
+          <th>Work Category</th>
+          <th>Sun </th>
+          <th>Mon </th>
+          <th>Tue </th>
+          <th>Wed </th>
+          <th>Thu </th>
+          <th>Fri</th>
+          <th>Sat </th>
+        </tr>
+      </thead>
+      <tbody>
+       
+        <tr *ngFor="let field of fieldArray; let i = index">
+           <!-- {{i}} -->
+          <td *ngIf="(this.JsonPsaRaw.length == i)">
+            
+              <input class="form-control" id="fieldWorkUnit" type="text"  readonly/>
+            
+            
+          </td>
+          <td *ngIf="this.JsonPsaRaw.length >= (i+1)">
+            <input class="form-control" id="fieldWorkUnit" type="text" [ngModel]='newAttribute3[i].workUnitDesc'
+              name="newAttributeWorkUnitDesc-{{i}}" readonly />
+          </td>
+          <td>
+              <a class='btn'>
+                <i (click)="openDialog(i)" id="search" class="material-icons">
+                  search    
+                </i>
+              </a>
+          </td>
+        
+            
+          
+          <td *ngIf="(this.JsonPsaRaw.length == i) ">
+            <input  class="form-control" id="fieldUnit" type="text"  name="newAttributeWorkUnit-{{i}}" readonly/>
+            </td>
+            <td *ngIf="this.JsonPsaRaw.length >= (i+1)">
+            <input  class="form-control" id="fieldUnit" type="text" [value]='newAttribute3[i].workUnit' name="newAttributeWorkUnit-{{i}}" readonly/>
+           </td>
+          <td>
+            <input *ngIf="(this.JsonPsaRaw.length == i) " class="form-control" id="fieldPsa" type="text"  name="newAttributePsa-{{i}}" readonly />
+            <input *ngIf="this.JsonPsaRaw.length >= (i+1)" class="form-control" id="fieldPsa" type="text" [value]='newAttribute3[i].psaCode' name="newAttributePsa-{{i}}" readonly />
+          </td>
+          <td>
+            <select *ngIf="(this.JsonPsaRaw.length == i) "   class="form-control" id="exampleSelect1"
+              name="newAttributeEffortType-{{i}}">
+              <option *ngFor="let item of foods" [ngValue]="item.value">{{item.viewValue}}</option>
+            </select>
+            <select *ngIf="this.JsonPsaRaw.length >= (i+1)"  [(ngModel)]="newAttribute3[i].effortType" class="form-control" id="exampleSelect1" name="newAttributeEffortType-{{i}}">
+              <option *ngFor="let item of foods" [ngValue]="item.value">{{item.viewValue}}</option>
+            </select>
+          </td>
+          <td>
+            <input *ngIf="(this.JsonPsaRaw.length == i)" class="form-control" id="fieldSystem" type="text" name="newAttributeSystemType-{{i}}" readonly/>
+            <input  *ngIf="this.JsonPsaRaw.length >= (i+1)" class="form-control" id="fieldSystem" type="text" [value]='newAttribute3[i].systemType' name="newAttributeSystemType-{{i}}" readonly/>
+          </td>
+          <td>
+            <input *ngIf="(this.JsonPsaRaw.length == i)" class="form-control" id="fieldSubSystem" type="text" name="newAttributeSubSystemType-{{i}}" readonly/>
+            <input *ngIf="this.JsonPsaRaw.length >= (i+1)" class="form-control" id="fieldSubSystem" type="text" [value]='newAttribute3[i].subSystemType' name="newAttributeSubSystemType-{{i}}" readonly/>
+          </td>
+          <td>
+            <input *ngIf="(this.JsonPsaRaw.length == i)" class="form-control" id="fieldRecType" type="text" name="newAttributeRecType-{{i}}" readonly/>
+            <input *ngIf="this.JsonPsaRaw.length >= (i+1)" class="form-control" id="fieldRecType" type="text" [value]='newAttribute3[i].recType' name="newAttributeRecType-{{i}}" readonly/>
+          </td>
+          <td>
+            <select *ngIf="(this.JsonPsaRaw.length == i)" class="form-control" id="exampleSelect1" name="newAttributeRecCat-{{i}}">
+              <option>Wrk Cat.</option>
+            </select>
+            <select *ngIf="this.JsonPsaRaw.length >= (i+1)" [(ngModel)]='newAttribute3[i].recCategory' class="form-control" id="exampleSelect1" 
+            name="newAttributeRecCat-{{i}}">
+              <option *ngFor="let option of recAttribute[i]" [ngValue]="option.recId['recordCategory']">{{option.recId['recordCategory']}}</option>
+            </select>
+          </td>
+          <td>
+            <input *ngIf="(this.JsonPsaRaw.length == i)" class="form-control" id="field" type="number" min=0 max=9 value=0 name="effortSunday-{{i}}" />
+           <input  *ngIf="this.JsonPsaRaw.length >= (i+1)"  [(ngModel)]="newAttribute3[i].sunday['effort']" class="form-control" id="field" type="number" min=0 max=9 name="effortSunday-{{i}}" />
+          </td>
+          <td>
+            <input *ngIf="(this.JsonPsaRaw.length == i)" class="form-control" id="field" type="number" min=0 max=9 value=0 name="effortMonday-{{i}}" />
+            <input  *ngIf="this.JsonPsaRaw.length >= (i+1)" [(ngModel)]="newAttribute3[i].monday['effort']" class="form-control" id="field" type="number" min=0 max=9 name="effortMonday-{{i}}" />
+          </td>
+          <td>
+            <input *ngIf="(this.JsonPsaRaw.length == i)" class="form-control" id="field" type="number" min=0 max=9 value=0 name="effortTuesday-{{i}}" />
+            <input  *ngIf="this.JsonPsaRaw.length >= (i+1)" [(ngModel)]="newAttribute3[i].tuesday['effort']" class="form-control" id="field" type="number" min=0 max=9 name="effortTuesday{{i}}" />
+          </td>
+          <td>
+            <input *ngIf="(this.JsonPsaRaw.length == i)" class="form-control" id="field" type="number" min=0 max=9 value=0 name="effortWednesday-{{i}}" />
+            <input  *ngIf="this.JsonPsaRaw.length >= (i+1)" [(ngModel)]="newAttribute3[i].wednesday['effort']" class="form-control" id="field" type="number" min=0 max=9 name="effortWednesday-{{i}}" />
+          </td>
+          <td>
+            <input *ngIf="(this.JsonPsaRaw.length == i)" class="form-control" id="field" type="number" min=0 max=9 value=0 name="effortThursday-{{i}}" />
+            <input  *ngIf="this.JsonPsaRaw.length >= (i+1)" [(ngModel)]="newAttribute3[i].thursday['effort']" class="form-control" id="field" type="number" min=0 max=9 name="effortThursday-{{i}}" />
+          </td>
+          <td>
+            <input *ngIf="(this.JsonPsaRaw.length == i)" class="form-control" id="field" type="number" min=0 max=9 value=0 name="effortFriday-{{i}}" />
+            <input  *ngIf="this.JsonPsaRaw.length >= (i+1)"  [(ngModel)]="newAttribute3[i].friday['effort']" class="form-control" id="field" type="number" min=0 max=9 name="effortFriday-{{i}}" />
+          </td>
+          <td>
+            <input *ngIf="(this.JsonPsaRaw.length == i)" class="form-control" id="field" type="number" min=0 max=9 value=0 name="effortSaturday-{{i}}" />
+            <input  *ngIf="this.JsonPsaRaw.length >= (i+1)" [(ngModel)]="newAttribute3[i].saturday['effort']" class="form-control" id="field" type="number" min=0 max=9 name="effortSaturday-{{i}}" />
+          </td>
+          <td>
+
+              <i class="material-icons" (click)="addFieldValue(i)"  id="add"
+               matTooltip="Add a new Timesheet row" 
+               aria-label="Button that displays a tooltip when focused or hovered over">
+                 add_box
+              </i>
+              <i class="material-icons"  (click)="deleteFieldValue(i)" id='remove'
+               matTooltip="Delete the Timesheet data row" 
+               aria-label="Button that displays a tooltip when focused or hovered over">
+              delete
+              </i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+<h3>Personal Details:</h3>
+
+    <table class="mat-elevation-z9" id="table2">
+            <thead>
+              <tr>
+                    <th></th>
+                    <th>Sun {{this.dateSun}}</th>
+                    <th>Mon {{this.dateMon}}</th>
+                    <th>Tue {{this.dateTue}}</th>
+                    <th>Wed {{this.dateWed}}</th>
+                    <th>Thu {{this.dateThu}}</th>
+                    <th>Fri {{this.dateFri}}</th>
+                    <th>Sat {{this.dateSat}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  Contingency Leave
+                </td>
+                <td>
+                  <input class="form-control" type="number" min=0 max=9 id="newAttributePrice" [(ngModel)]="newAttributeCL.sunday['effort']" name="newAttributeCLeffortSunday"/>
+                </td>
+                <td>
+                  <input class="form-control" type="number" min=0 max=9 id="newAttributePrice" [(ngModel)]="newAttributeCL.monday['effort']" name="newAttributeCLeffortMonday"/>
+                </td>
+                <td>
+                  <input class="form-control" type="number" min=0 max=9 id="newAttributePrice" [(ngModel)]="newAttributeCL.tuesday['effort']" name="newAttributeCLeffortTuesday"/>
+                </td>
+                <td>
+                  <input class="form-control" type="number" min=0 max=9 id="newAttributePrice" [(ngModel)]="newAttributeCL.wednesday['effort']" name="newAttributeCLeffortWednesday"/>
+                </td>
+                <td>
+                  <input class="form-control" type="number" min=0 max=9 id="newAttributePrice" [(ngModel)]="newAttributeCL.thursday['effort']" name="newAttributeCLeffortThursday"/>
+                </td>
+                <td>
+                  <input class="form-control" type="number" min=0 max=9 id="newAttributePrice" [(ngModel)]="newAttributeCL.friday['effort']" name="newAttributeCLeffortFriday"/>
+                </td>
+                <td>
+                  <input class="form-control" type="number" min=0 max=9 id="newAttributePrice" [(ngModel)]="newAttributeCL.saturday['effort']" name="newAttributeCLeffortSaturday"/>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  Statuatory Holiday
+                </td>
+                <td>
+                  <input class="form-control" type="number" min=0 max=9 id="newAttributePrice" [(ngModel)]="newAttributeSH.sunday['effort']" name="newAttributeeffortSunday"
+                  />
+                </td>
+                <td>
+                  <input class="form-control" type="number" min=0 max=9 id="newAttributePrice" [(ngModel)]="newAttributeSH.monday['effort']" name="newAttributeeffortMonday"
+                  />
+                </td>
+                <td>
+                  <input class="form-control" type="number" min=0 max=9 id="newAttributePrice" [(ngModel)]="newAttributeSH.tuesday['effort']" name="newAttributeeffortTuesday"
+                  />
+                </td>
+                <td>
+                  <input class="form-control" type="number" min=0 max=9 id="newAttributePrice" [(ngModel)]="newAttributeSH.wednesday['effort']" name="newAttributeeffortWednesday"
+                  />
+                </td>
+                <td>
+                  <input class="form-control" type="number" min=0 max=9 id="newAttributePrice" [(ngModel)]="newAttributeSH.thursday['effort']" name="newAttributeeffortThursday"
+                  />
+                </td>
+                <td>
+                  <input class="form-control" type="number" min=0 max=9 id="newAttributePrice" [(ngModel)]="newAttributeSH.friday['effort']" name="newAttributeeffortFriday"
+                  />
+                </td>
+                <td>
+                  <input class="form-control" type="number" min=0 max=9 id="newAttributePrice" [(ngModel)]="newAttributeSH.saturday['effort']" name="newAttributeeffortSaturday"
+                  />
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  Training
+                </td>
+                <td>
+                  <input class="form-control" type="number" min=0 max=9 id="newAttributePrice" [(ngModel)]="newAttributeTR.sunday['effort']" name="newAttributeeffortSunday"
+                  />
+                </td>
+                <td>
+                  <input class="form-control" type="number" min=0  max=9 id="newAttributePrice" [(ngModel)]="newAttributeTR.monday['effort']" name="newAttributeeffortMonday"
+                  />
+                </td>
+                <td>
+                  <input class="form-control" type="number" min=0 max=9 id="newAttributePrice" [(ngModel)]="newAttributeTR.tuesday['effort']" name="newAttributeeffortTuesday"
+                  />
+                </td>
+                <td>
+                  <input class="form-control" type="number" min=0 max=9 id="newAttributePrice" [(ngModel)]="newAttributeTR.wednesday['effort']" name="newAttributeeffortWednesday"
+                  />
+                </td>
+                <td>
+                  <input class="form-control" type="number" min=0 max=9 id="newAttributePrice" [(ngModel)]="newAttributeTR.thursday['effort']" name="newAttributeeffortThursday"
+                  />
+                </td>
+                <td>
+                  <input class="form-control" type="number" min=0 max=9 id="newAttributePrice" [(ngModel)]="newAttributeTR.friday['effort']" name="newAttributeeffortFriday"
+                  />
+                </td>
+                <td>
+                  <input class="form-control" type="number" min=0 max=9 id="newAttributePrice" [(ngModel)]="newAttributeTR.saturday['effort']" name="newAttributeeffortSaturday"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+      <!-- <button mat-raised-button  (click)="onSave()" id="approval" matTooltip="Save Timesheet Data"
+        aria-label="Button that displays a tooltip when focused or hovered over">SAVE FOR LATER</button> -->
+
+      <button mat-raised-button color="primary" (click)="onSubmit()" (click)="openSnackBar()" id="approval"
+       matTooltip="Submit Timesheet Data" aria-label="Button that displays a tooltip when focused or hovered over">SUBMIT FOR APPROVAL</button>
+

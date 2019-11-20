@@ -1,0 +1,28 @@
+<mat-toolbar color="primary" class="mat-elevation-z9">
+  <mat-toolbar-row>
+    <div fxLayout="row" fxFlex="40">
+      <a [routerLink]="['/home']" [routerLinkActive]="['active']">
+      <mat-icon id="home"
+       matTooltip="Redirect to Home" 
+       aria-label="Button that displays a tooltip when focused or hovered over">home</mat-icon>
+      </a>
+    </div>
+    <div fxLayout="row" fxFlex="55">Time Sheet App</div>
+    <div fxLayout="row" fxFlex=5>
+    <button mat-button [matMenuTriggerFor]="menu">{{authorized}}<i class="material-icons" (click)='authorize()'>supervised_user_circle</i></button></div>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item [matMenuTriggerFor]="subMenu">Login</button>
+    </mat-menu>
+    <mat-menu #subMenu="matMenu">
+    <a [routerLink]="['/loginuser']" [routerLinkActive]="['active']"> 
+      <button mat-menu-item>Login as User</button>
+    </a>
+    <a [routerLink]="['/loginadmin']" [routerLinkActive]="['active']">
+      <button mat-menu-item>Login as Admin</button>
+    </a>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+

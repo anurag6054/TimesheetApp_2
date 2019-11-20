@@ -1,0 +1,30 @@
+.mat-drawer-container
+{
+    height: 100%;
+}
+
+#green{
+    width: 200px !important;
+    height: 550px !important;
+    /* height: 1000px */
+}
+#welcome{
+    margin-left: 50px !important;
+}
+
+.mat-nav-list{
+    height: 50px !important;
+    /* border-bottom: 0.5px solid grey; */
+}
+.mat-nav-list :hover{
+    background-color:lightgrey;
+}
+
+#blue{
+    
+    /* background-color: lightblue; */
+    /* width: 200px !important; */
+    height: 550px !important;
+    /* height: 1000px */
+
+}

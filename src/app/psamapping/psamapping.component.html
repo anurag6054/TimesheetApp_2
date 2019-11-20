@@ -1,0 +1,58 @@
+<div fxLayout="row" fxFlexOffset=33 fxFlex=33>
+
+  <mat-card id="my-card" class="mat-elevation-z9">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image">
+        <img mat-card-image src="assets/img/psa.JPG" alt="Psa Mapping">
+      </div>
+      <mat-card-title class="header">PSA MAPPING</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form #psaForm="ngForm" class="my-form" (ngSubmit)="onSubmit()" novalidate>
+         <!-- {{psaModel| json}} -->
+        <hr>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>PSA CODE</mat-label>
+          <input matInput placeholder="PSA CODE" name="psaCode" autocomplete="off" [(ngModel)]="psaIdModel.psaCode" #message>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-select placeholder="SYSTEM TYPE" [(ngModel)]="psaIdModel.systemType" class="form-control" id="exampleSelect1" name="systemType">
+            <mat-option *ngFor="let item of foods" [value]="item.value">{{item.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-select placeholder="SUB SYSTEM TYPE" [(ngModel)]="psaIdModel.subSystemType" class="form-control" id="exampleSelect1"
+            name="subSystemType">
+            <mat-option *ngFor="let item of subSystem" [value]="item.value">{{item.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-select placeholder="REC TYPE" [(ngModel)]="psaIdModel.recType" class="form-control" id="exampleSelect1" name="recType">
+            <mat-option *ngFor="let item of rec" [value]="item.value">{{item.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>PSA DESCRIPTION</mat-label>
+          <input matInput placeholder="PSA DESCRIPTION" name="psaDesc" autocomplete="off" [(ngModel)]="psaModel.psaDesc">
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>USER ID</mat-label>
+          <input matInput placeholder="USER ID" name="userId" autocomplete="off" [(ngModel)]="userId" readonly>
+        </mat-form-field>
+                <section>
+                  <button mat-raised-button color="primary" type="submit" (click)="openSnackBar(message.value)" id="create">SUBMIT</button>
+                </section>
+        
+      </form>
+      <hr>
+      <h2>Mass Upload</h2>
+      <section>
+        <input type="file" (change)="incomingfile($event)" placeholder="Upload file" accept=".xlsx">
+        <button mat-raised-button color="primary" (click)="Upload()">Upload</button>
+      
+      </section>
+    </mat-card-content>
+
+  </mat-card>
+</div>

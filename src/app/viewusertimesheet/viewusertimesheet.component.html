@@ -1,0 +1,310 @@
+<h3 class="time">VIEW TIME REPORT</h3>
+<hr>
+<h4 class="summary">Time Report Summary</h4>
+<mat-card id="example-card-name" class="mat-elevation-z9">
+  <mat-card-header>
+    <img mat-card-image src="assets/img/userprofile.jpg" alt="User Profile">
+    <h3 *ngFor="let user of userdata2">{{user.firstName}} {{user.lastName}}</h3>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="example-form">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <p *ngFor="let data of resultdata1">
+              <b>Employee Id:</b> {{data.employee}}</p>
+          </td>
+          <td>
+            <p *ngFor="let data of resultdata1">
+              <b>Period End Date:</b>{{data.periodDate}} </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>Create Revision: </b>
+              <button mat-button (click)="modify()" id="approval1"
+               matTooltip="Modify Timesheet Data" 
+               aria-label="Button that displays a tooltip when focused or hovered over">Modify</button>
+             
+            </td>
+          
+        </tr>
+      </table>
+    </form>
+  </mat-card-content>
+</mat-card>
+<mat-card class="mat-elevation-z9" id="projectCard">
+
+        <h3>Project Details:</h3>
+        <a class='btn' id='export' (click)='export()'>
+          <i class="material-icons" id="chrome" 
+           matTooltip="Export Timesheet Data to Excel" 
+           aria-label="Button that displays a tooltip when focused or hovered over">
+            chrome_reader_mode
+          </i></a>
+        
+        <table class="mat-elevation-z9" id="table">
+          <thead>
+            <tr>
+              <th>W.U. Desc.</th>
+              <th>Work Unit</th>
+              <th>PSA</th>
+              <th>Category</th>
+              <th>System</th>
+              <th>Sub-System</th>
+              <th>Work Type</th>
+              <th>Work Category</th>
+              <th>Su {{this.dateSun}}</th>
+              <th>Mo {{this.dateMon}}</th>
+              <th>Tue {{this.dateTue}}</th>
+              <th>Wed {{this.dateWed}}</th>
+              <th>Thu {{this.dateThu}}</th>
+              <th>Fri {{this.dateFri}}</th>
+              <th>Sat {{this.dateSat}}</th>
+            </tr> 
+          </thead>
+          <tbody>
+            <tr *ngFor='let item of userdata'>
+              <td *ngIf="item.workUnit!=='CL' && item.workUnit!=='TRA' && item.workUnit!=='SH'">
+                <input  class="form-control" id="view" type="text" [value]="item.workUnitDesc" readonly />
+              </td>
+              <td *ngIf="item.workUnit!=='CL' && item.workUnit!=='TRA' && item.workUnit!=='SH'">
+                <input class="form-control" id="view" type="text" [value]="item.workUnit" readonly />
+              </td>
+              <td *ngIf="item.workUnit!=='CL' && item.workUnit!=='TRA' && item.workUnit!=='SH'">
+                <input class="form-control" id="viewPsa" type="text" [value]="item.psaCode" readonly />
+              </td>
+              <td *ngIf="item.workUnit!=='CL' && item.workUnit!=='TRA' && item.workUnit!=='SH'">
+                <input class="form-control" id="view" type="text" [value]="item.effortType" readonly />
+              </td>
+              <td *ngIf="item.workUnit!=='CL' && item.workUnit!=='TRA' && item.workUnit!=='SH'">
+                <input class="form-control" id="view" type="text" [value]="item.systemType" readonly />
+              </td>
+              <td *ngIf="item.workUnit!=='CL' && item.workUnit!=='TRA' && item.workUnit!=='SH'">
+                <input class="form-control" id="view" type="text" [value]="item.subSystemType" readonly />
+              </td>
+              <td *ngIf="item.workUnit!=='CL' && item.workUnit!=='TRA' && item.workUnit!=='SH'">
+                <input class="form-control" id="view" type="text" [value]="item.recType" readonly />
+              </td>
+              <td *ngIf="item.workUnit!=='CL' && item.workUnit!=='TRA' && item.workUnit!=='SH'">
+                <input class="form-control" id="view" type="text" [value]="item.recCategory" readonly />
+              </td>
+              <td *ngIf="item.workUnit!=='CL' && item.workUnit!=='TRA' && item.workUnit!=='SH' && item.sunday['effort']==0">
+                <input class="form-control"  id="view2" type="text" [value]=null  readonly/>
+              </td>
+              <td *ngIf="item.workUnit!=='CL' && item.workUnit!=='TRA' && item.workUnit!=='SH' && item.sunday['effort']!==0">
+                <input class="form-control" id="view2" type="text" [value]="item.sunday['effort']" readonly />
+              </td>
+              <td *ngIf="item.workUnit!=='CL' && item.workUnit!=='TRA' && item.workUnit!=='SH' && item.monday['effort']==0">
+                <input class="form-control"  id="view2" type="text" [value]=null readonly />
+              </td>
+              <td *ngIf="item.workUnit!=='CL' && item.workUnit!=='TRA' && item.workUnit!=='SH' && item.monday['effort']!==0" >
+                <input class="form-control"  id="view2" type="text" [value]="item.monday['effort']"  readonly/>
+              </td>
+              <td *ngIf="item.workUnit!=='CL' && item.workUnit!=='TRA' && item.workUnit!=='SH' && item.tuesday['effort']==0">
+                <input class="form-control" id="view2" type="text" [value]=null readonly />
+              </td>
+              <td *ngIf="item.workUnit!=='CL' && item.workUnit!=='TRA' && item.workUnit!=='SH' && item.tuesday['effort']!==0">
+                <input class="form-control"  id="view2" type="text" [value]="item.tuesday['effort']"  readonly/>
+              </td>
+              <td *ngIf="item.workUnit!=='CL' && item.workUnit!=='TRA' && item.workUnit!=='SH' &&  item.wednesday['effort']==0">
+                <input class="form-control"   id="view2" type="text" [value]=null  readonly/>
+              </td>
+              <td *ngIf="item.workUnit!=='CL' && item.workUnit!=='TRA' && item.workUnit!=='SH' && item.wednesday['effort']!==0" >
+                <input class="form-control"  id="view2" type="text" [value]="item.wednesday['effort']"  readonly/>
+              </td>
+              <td *ngIf="item.workUnit!=='CL' && item.workUnit!=='TRA' && item.workUnit!=='SH' && item.thursday['effort']==0">
+                <input class="form-control"  id="view2" type="text" [value]=null  readonly/>
+              </td>
+              <td *ngIf="item.workUnit!=='CL' && item.workUnit!=='TRA' && item.workUnit!=='SH' && item.thursday['effort']!==0" >
+                <input class="form-control"  id="view2" type="text" [value]="item.thursday['effort']" readonly />
+              </td>
+              <td *ngIf="item.workUnit!=='CL' && item.workUnit!=='TRA' && item.workUnit!=='SH' && item.friday['effort']==0">
+                <input class="form-control"  id="view2" type="text" [value]=null readonly/>
+              </td>
+              <td *ngIf="item.workUnit!=='CL' && item.workUnit!=='TRA' && item.workUnit!=='SH' && item.friday['effort']!==0" >
+                <input class="form-control"  id="view2" type="text" [value]="item.friday['effort']" readonly />
+              </td>
+              <td *ngIf="item.workUnit!=='CL' && item.workUnit!=='TRA' && item.workUnit!=='SH' && item.saturday['effort']==0" >
+                <input class="form-control"  id="view2" type="text" [value]=null readonly />
+              </td>
+              <td *ngIf="item.workUnit!=='CL' && item.workUnit!=='TRA' && item.workUnit!=='SH' && item.saturday['effort']!==0" >
+                <input class="form-control"  id="view2" type="text" [value]="item.saturday['effort']"  readonly/>
+              </td>
+
+            </tr>
+          </tbody>
+          </table>
+          </mat-card>
+                    
+      <h3>Personal Details:</h3>
+      <table class="mat-elevation-z9" id="table2">
+        <thead>
+          <tr>
+            <th></th>
+            <th >Su {{this.dateSun}}</th>
+            <th >Mo {{this.dateMon}}</th>
+            <th >Tue {{this.dateTue}}</th>
+            <th >Wed {{this.dateWed}}</th>
+            <th >Thu {{this.dateThu}}</th>
+            <th >Fri {{this.dateFri}}</th>
+            <th >Sat {{this.dateSat}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let item of userdata;let i=index'>
+            <!-- {{i}} -->
+            <td *ngIf="item.workUnit=='CL'">
+              Contingency Leave
+            </td>
+            <td>
+              <input *ngIf=" item.workUnit=='CL' && item.sunday['effort']==0" class="form-control" id="view1" type="number" 
+                [ngModel]=null readonly/>
+              <input *ngIf=" item.workUnit=='CL' && item.sunday['effort']!==0" class="form-control" type="number" id="view1" 
+                [value]="item.sunday['effort']" readonly/>
+            </td>
+            <td>
+              <input *ngIf=" item.workUnit=='CL' && item.monday['effort']==0" class="form-control" id="view1" type="number" 
+                [ngModel]=null readonly/>
+              <input *ngIf=" item.workUnit=='CL' && item.monday['effort']!==0" class="form-control" type="number" id="view1" 
+                [value]="item.monday['effort']" readonly/>
+            </td>
+            <td>
+              <input *ngIf="item.workUnit=='CL' && item.tuesday['effort']==0" class="form-control" id="view1" type="number" 
+                [ngModel]=null readonly/>
+              <input *ngIf="item.workUnit=='CL' && item.tuesday['effort']!==0" class="form-control" type="number" id="view1" 
+                [value]="item.tuesday['effort']" readonly/>
+            </td>
+            <td>
+              <input *ngIf=" item.workUnit=='CL' && item.wednesday['effort']==0" class="form-control" id="view1" type="number" 
+                [ngModel]=null readonly/>
+              <input *ngIf=" item.workUnit=='CL' && item.wednesday['effort']!==0" class="form-control" type="number" id="view1"
+                [ngModel]="item.wednesday['effort']" readonly/>
+            </td>
+            <td>
+              <input *ngIf="item.workUnit=='CL' && item.thursday['effort']==0" class="form-control" id="view1" type="number" 
+                [ngModel]=null readonly/>
+              <input *ngIf="item.workUnit=='CL' && item.thursday['effort']!==0" class="form-control" type="number" id="view1" 
+                [ngModel]="item.thursday['effort']" readonly/>
+            </td>
+            <td>
+              <input *ngIf="item.workUnit=='CL' && item.friday['effort']==0" class="form-control" id="view1" type="number" 
+                [ngModel]=null readonly/>
+      
+              <input *ngIf="item.workUnit=='CL' && item.friday['effort']!==0" class="form-control" type="number" id="view1" 
+                [ngModel]="item.friday['effort']" readonly/>
+            </td>
+            <td>
+              <input *ngIf="item.workUnit=='CL' && item.saturday['effort']==0" class="form-control" id="view1" type="number" 
+                [ngModel]=null readonly/>
+              <input *ngIf="item.workUnit=='CL' && item.saturday['effort']!==0" class="form-control" type="number" id="view1" 
+                [value]="item.saturday['effort']" readonly/>
+            </td>
+          </tr>
+      
+      
+          <tr *ngFor='let item of userdata;let i=index'>
+            <!-- {{i}} -->
+            <td *ngIf="item.workUnit=='SH'">
+              Statuatory Holiday
+            </td>
+            <td>
+              <input *ngIf=" item.workUnit=='SH' && item.sunday['effort']==0" class="form-control" id="view1" type="number" 
+                [ngModel]=null readonly/>
+              <input *ngIf=" item.workUnit=='SH' && item.sunday['effort']!==0" class="form-control" type="number" id="view1" 
+                [value]="item.sunday['effort']" readonly/>
+            </td>
+            <td>
+              <input *ngIf=" item.workUnit=='SH' && item.monday['effort']==0" class="form-control" id="view1" type="number" 
+                [ngModel]=null readonly/>
+              <input *ngIf=" item.workUnit=='SH' && item.monday['effort']!==0" class="form-control" type="number" id="view1" 
+                [value]="item.monday['effort']" readonly/>
+            </td>
+            <td>
+              <input *ngIf="item.workUnit=='SH' && item.tuesday['effort']==0" class="form-control" id="view1" type="number" 
+                [ngModel]=null readonly/>
+              <input *ngIf="item.workUnit=='SH' && item.tuesday['effort']!==0" class="form-control" type="number" id="view1" 
+                [value]="item.tuesday['effort']" readonly/>
+            </td>
+            <td>
+              <input *ngIf=" item.workUnit=='SH' && item.wednesday['effort']==0" class="form-control" id="view1" type="number" 
+                [ngModel]=null readonly/>
+              <input *ngIf=" item.workUnit=='SH' && item.wednesday['effort']!==0" class="form-control" type="number" id="view1" 
+                [ngModel]="item.wednesday['effort']" readonly/>
+            </td>
+            <td>
+              <input *ngIf="item.workUnit=='SH' && item.thursday['effort']==0" class="form-control" id="view1" type="number" 
+                [ngModel]=null readonly/>
+              <input *ngIf="item.workUnit=='SH' && item.thursday['effort']!==0" class="form-control" type="number" id="view1" 
+                [ngModel]="item.thursday['effort']" readonly/>
+            </td>
+            <td>
+              <input *ngIf="item.workUnit=='SH' && item.friday['effort']==0" class="form-control" id="view1" type="number" 
+                [ngModel]=null readonly/>
+      
+              <input *ngIf="item.workUnit=='SH' && item.friday['effort']!==0" class="form-control" type="number" id="view1" 
+                [ngModel]="item.friday['effort']" readonly/>
+            </td>
+            <td>
+              <input *ngIf="item.workUnit=='SH' && item.saturday['effort']==0" class="form-control" id="view1" type="number" 
+                [ngModel]=null readonly/>
+              <input *ngIf="item.workUnit=='SH' && item.saturday['effort']!==0" class="form-control" type="number" id="view1" 
+                [value]="item.saturday['effort']" readonly/>
+            </td>
+          </tr>
+      
+          <tr *ngFor='let item of userdata;let i=index'>
+            <!-- {{i}} -->
+            <td *ngIf="item.workUnit=='TRA'">
+              Training
+            </td>
+            <td>
+              <input *ngIf=" item.workUnit=='TRA' && item.sunday['effort']==0" class="form-control" id="view1" type="number" 
+                [ngModel]=null readonly/>
+              <input *ngIf=" item.workUnit=='TRA' && item.sunday['effort']!==0" class="form-control" type="number" id="view1" 
+                [value]="item.sunday['effort']" readonly/>
+            </td>
+            <td>
+              <input *ngIf=" item.workUnit=='TRA' && item.monday['effort']==0" class="form-control" id="view1" type="number" 
+                [ngModel]=null readonly/>
+              <input *ngIf=" item.workUnit=='TRA' && item.monday['effort']!==0" class="form-control" type="number" id="view1" 
+                [value]="item.monday['effort']" readonly/>
+            </td>
+            <td>
+              <input *ngIf="item.workUnit=='TRA' && item.tuesday['effort']==0" class="form-control" id="view1" type="number" 
+                [ngModel]=null readonly/>
+              <input *ngIf="item.workUnit=='TRA' && item.tuesday['effort']!==0" class="form-control" type="number" id="view1" 
+                [value]="item.tuesday['effort']" readonly/>
+            </td>
+            <td>
+              <input *ngIf=" item.workUnit=='TRA' && item.wednesday['effort']==0" class="form-control" id="view1" type="number" 
+                [ngModel]=null readonly/>
+              <input *ngIf=" item.workUnit=='TRA' && item.wednesday['effort']!==0" class="form-control" type="number" id="view1" 
+                [ngModel]="item.wednesday['effort']" readonly/>
+            </td>
+            <td>
+              <input *ngIf="item.workUnit=='TRA' && item.thursday['effort']==0" class="form-control" id="view1" type="number" 
+                [ngModel]=null readonly/>
+              <input *ngIf="item.workUnit=='TRA' && item.thursday['effort']!==0" class="form-control" type="number" id="view1" 
+                [ngModel]="item.thursday['effort']" readonly/>
+            </td>
+            <td>
+              <input *ngIf="item.workUnit=='TRA' && item.friday['effort']==0" class="form-control" id="view1" type="number" 
+                [ngModel]=null readonly/>
+      
+              <input *ngIf="item.workUnit=='TRA' && item.friday['effort']!==0" class="form-control" type="number" id="view1" 
+                [ngModel]="item.friday['effort']" readonly/>
+            </td>
+            <td>
+              <input *ngIf="item.workUnit=='TRA' && item.saturday['effort']==0" class="form-control" id="view1" type="number" 
+                [ngModel]=null readonly/>
+              <input *ngIf="item.workUnit=='TRA' && item.saturday['effort']!==0" class="form-control" type="number" id="view1" 
+                [value]="item.saturday['effort']" readonly/>
+            </td>
+          </tr>
+      
+        </tbody>
+      </table>
+     
+
+          <button mat-raised-button color="primary" (click)="home()" id="approval">Return to Home Screen</button>
