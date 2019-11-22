@@ -7,7 +7,7 @@ import { Userprofile } from './userprofile';
 })
 export class UserprofileService {
 
-  url = 'http://localhost:8888/user/add';
+  url = 'http://13.234.37.17:8888/user/add';
 
   constructor(private http: HttpClient) { }
 

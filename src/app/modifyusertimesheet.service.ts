@@ -12,7 +12,7 @@ export class ModifyusertimesheetService {
 
     console.log('viewusertimesheet!!!!', employee, periodDate);
 
-    const url = 'http://localhost:8888/workload/view/' + employee + '/' + periodDate;
+    const url = 'http://13.234.37.17:8888/workload/view/' + employee + '/' + periodDate;
     return this.http.get<any>(url);
 
 

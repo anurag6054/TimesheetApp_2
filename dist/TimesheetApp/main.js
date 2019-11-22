@@ -768,16 +768,16 @@ var AuthService = /** @class */ (function () {
         this.http = http;
     }
     AuthService.prototype.sendEmail = function () {
-        var url = 'http://localhost:8888/user/remainder/thursday';
+        var url = 'http://13.234.37.17:8888/user/remainder/thursday';
         return this.http.get(url, { responseType: 'text' });
     };
     AuthService.prototype.sendFridayEmail = function (friday) {
-        var url = 'http://localhost:8888/user/remainder/friday/' + friday;
+        var url = 'http://13.234.37.17:8888/user/remainder/friday/' + friday;
         return this.http.get(url, { responseType: 'text' });
     };
     AuthService.prototype.authUser = function (userId, password) {
         console.log('userId:', userId, 'password:', password);
-        var url = 'http://localhost:8888/user/authenticate/' + userId + '/' + password;
+        var url = 'http://13.234.37.17:8888/user/authenticate/' + userId + '/' + password;
         return this.http.get(url, { responseType: 'text' });
     };
     AuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1207,7 +1207,7 @@ var ModifyusertimesheetService = /** @class */ (function () {
     }
     ModifyusertimesheetService.prototype.sendPsaDetails = function (employee, periodDate) {
         console.log('viewusertimesheet!!!!', employee, periodDate);
-        var url = 'http://localhost:8888/workload/view/' + employee + '/' + periodDate;
+        var url = 'http://13.234.37.17:8888/workload/view/' + employee + '/' + periodDate;
         return this.http.get(url);
     };
     ModifyusertimesheetService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1984,27 +1984,27 @@ var PsaService = /** @class */ (function () {
     PsaService.prototype.sendPsa = function (workunitDesc, employee) {
         console.log('employee', employee);
         console.log('workunit', workunitDesc);
-        var url = 'http://localhost:8888/unit/view/' + employee + '/' + workunitDesc;
+        var url = 'http://13.234.37.17:8888/unit/view/' + employee + '/' + workunitDesc;
         return this.http.get(url);
     };
     PsaService.prototype.sendPsaUnit = function (workunit) {
         console.log('workunit', workunit);
-        var url = 'http://localhost:8888/unit/view/workunit/' + workunit;
+        var url = 'http://13.234.37.17:8888/unit/view/workunit/' + workunit;
         return this.http.get(url);
     };
     PsaService.prototype.sendPsaDetails = function (psaCode) {
         console.log('psaCode!!!!', psaCode);
-        var url = 'http://localhost:8888/psa/view/' + psaCode;
+        var url = 'http://13.234.37.17:8888/psa/view/' + psaCode;
         return this.http.get(url);
     };
     PsaService.prototype.sendRecDetails = function (rec) {
         console.log('recCategory!!!!', rec);
-        var url = 'http://localhost:8888/rec/view/' + rec;
+        var url = 'http://13.234.37.17:8888/rec/view/' + rec;
         return this.http.get(url);
     };
     PsaService.prototype.sendPsaCode = function (sys, subsys, rec) {
         console.log('recCategory!!!!', sys, subsys, rec);
-        var url = 'http://localhost:8888/psa/view/code/' + sys + '/' + subsys + '/' + rec;
+        var url = 'http://13.234.37.17:8888/psa/view/code/' + sys + '/' + subsys + '/' + rec;
         return this.http.get(url);
     };
     PsaService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -2063,7 +2063,7 @@ __webpack_require__.r(__webpack_exports__);
 var PsamappingService = /** @class */ (function () {
     function PsamappingService(http) {
         this.http = http;
-        this.url = 'http://localhost:8888/psa/add';
+        this.url = 'http://13.234.37.17:8888/psa/add';
     }
     PsamappingService.prototype.psaMap = function (psamapping) {
         return this.http.post(this.url, psamapping);
@@ -2879,12 +2879,12 @@ var UserdataService = /** @class */ (function () {
     }
     UserdataService.prototype.sendUserData = function (employee) {
         console.log('employee!!!', employee);
-        var url = 'http://localhost:8888/user/view/' + employee;
+        var url = 'http://13.234.37.17:8888/user/view/' + employee;
         return this.http.get(url);
     };
     UserdataService.prototype.getUserData = function (employee, periodDate) {
         console.log('employee & period end Date!!!', employee, periodDate);
-        var url = 'http://localhost:8888/workload/view/week/' + employee + '/' + periodDate;
+        var url = 'http://13.234.37.17:8888/workload/view/week/' + employee + '/' + periodDate;
         return this.http.get(url);
     };
     UserdataService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -2919,7 +2919,7 @@ __webpack_require__.r(__webpack_exports__);
 var UserprofileService = /** @class */ (function () {
     function UserprofileService(http) {
         this.http = http;
-        this.url = 'http://localhost:8888/user/add';
+        this.url = 'http://13.234.37.17:8888/user/add';
     }
     UserprofileService.prototype.userProfile = function (userprofile) {
         return this.http.post(this.url, userprofile);
@@ -3572,13 +3572,13 @@ var UsertimesheetdataService = /** @class */ (function () {
         this.http = http;
     }
     UsertimesheetdataService.prototype.userTimesheet = function (fieldArray, employee, periodDate) {
-        var url = 'http://localhost:8888/workload/add/' + employee + '/' + periodDate;
+        var url = 'http://13.234.37.17:8888/workload/add/' + employee + '/' + periodDate;
         return this.http.post(url, fieldArray);
     };
     UsertimesheetdataService.prototype.modifyTimesheet = function (userdata, employee, periodDate) {
         console.log('modify-userdata', userdata);
         console.log('modifySheet', employee, periodDate);
-        var url = 'http://localhost:8888/workload/update/' + employee + '/' + periodDate;
+        var url = 'http://13.234.37.17:8888/workload/update/' + employee + '/' + periodDate;
         return this.http.put(url, userdata);
         return this.http.put(url, userdata);
         console.log(userdata);
@@ -3832,7 +3832,7 @@ var ViewusertimesheetdataService = /** @class */ (function () {
     }
     ViewusertimesheetdataService.prototype.sendPsaDetails = function (employee, periodDate) {
         console.log('viewusertimesheet!!!!', employee, periodDate);
-        var url = 'http://localhost:8888/workload/view/' + employee + '/' + periodDate;
+        var url = 'http://13.234.37.17:8888/workload/view/' + employee + '/' + periodDate;
         return this.http.get(url);
     };
     ViewusertimesheetdataService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -3892,7 +3892,7 @@ __webpack_require__.r(__webpack_exports__);
 var WorkunitService = /** @class */ (function () {
     function WorkunitService(http) {
         this.http = http;
-        this.url = 'http://localhost:8888/unit/add';
+        this.url = 'http://13.234.37.17:8888/unit/add';
     }
     WorkunitService.prototype.workUnit = function (workunit) {
         return this.http.post(this.url, workunit);

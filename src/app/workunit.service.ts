@@ -7,7 +7,7 @@ import { Workunit } from './workunit';
 })
 export class WorkunitService {
 
-  url = 'http://localhost:8888/unit/add';
+  url = 'http://13.234.37.17:8888/unit/add';
 
   constructor(private http: HttpClient) { }
 

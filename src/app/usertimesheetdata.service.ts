@@ -9,14 +9,14 @@ export class UsertimesheetdataService {
   constructor(private http: HttpClient) { }
 
   userTimesheet(fieldArray, employee,periodDate) {
-    const url = 'http://localhost:8888/workload/add/' + employee + '/' + periodDate ;
+    const url = 'http://13.234.37.17:8888/workload/add/' + employee + '/' + periodDate ;
     return this.http.post<any>(url,fieldArray);
     
   }
   modifyTimesheet(userdata,employee,periodDate) {
     console.log('modify-userdata', userdata);
     console.log('modifySheet', employee,periodDate);
-    const url = 'http://localhost:8888/workload/update/' + employee +'/' + periodDate ;
+    const url = 'http://13.234.37.17:8888/workload/update/' + employee +'/' + periodDate ;
     return this.http.put<any>(url, userdata);
    return this.http.put<any>(url, userdata);
    console.log(userdata);

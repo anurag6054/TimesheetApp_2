@@ -7,7 +7,7 @@ import {Psamapping } from './psamapping';
 })
 export class PsamappingService {
 
-  url = 'http://localhost:8888/psa/add';
+  url = 'http://13.234.37.17:8888/psa/add';
 
   constructor(private http: HttpClient) { }
 
